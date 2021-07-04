@@ -9,6 +9,7 @@
 /* Hero section, footer background: #2F303A; */
 /* not-active button background #F5F4FA */
 /*background-color hero #C4C4C4;*/
+/* logo color #afb1b8 */
 
 html {
   box-sizing: border-box;
@@ -67,6 +68,7 @@ img {
   --secondary-background-color: #f5f4fa;
   --border: #eeeeee;
   --hero-color-third: #c4c4c4;
+  --logo-color: #afb1b8;
 }
 
 body {
@@ -96,6 +98,11 @@ ul {
   line-height: 1.19;
   letter-spacing: 0.03em;
   color: var(--logo-black);
+}
+
+.logo:focus,
+.logo:hover {
+  outline: transparent;
 }
 
 .logo-container {
@@ -128,6 +135,7 @@ header {
 .contact-container {
   display: flex;
   margin-left: auto;
+  align-items: center;
 }
 
 .nav-container {
@@ -167,21 +175,15 @@ header {
   text-decoration: none;
   color: var(--footer-head-color-link-tel);
 }
-/* 
-.link-mail {
-  display: inline-flex;
-  align-items: baseline;
-} */
 
-/* .link-mail::before {
-  content: "";
-  width: 16px;
-  height: 12px;
-  margin-right: 10px;
-  background-image: url(../images/envelope.svg);
-} */
+.link-mail {
+  display: flex;
+  align-items: center;
+}
 
 .link-mail-tel.top {
+  display: flex;
+  align-items: center;
   color: var(--paragraphes-and-contacts);
 }
 
@@ -192,8 +194,26 @@ header {
 }
 
 .link-mail {
-  margin-right: 50px;
+  margin-right: 30px;
 }
+
+.tel {
+  display: flex;
+  align-items: center;
+}
+
+.mail-top,
+.tel-top {
+  margin-right: 10px;
+  fill: var(--paragraphes-and-contacts);
+}
+
+.link-mail-tel.top:hover .mail-top,
+.link-mail-tel.top:focus .tel-top {
+  fill: var(--active-link);
+  outline: none;
+}
+
 /* =============================================Герой==================================================== */
 .hero {
   padding-top: 200px;
@@ -303,7 +323,8 @@ header {
   border-radius: 4px;
 }
 
-.features-icon:hover {
+.features-icon:hover,
+.features-icon:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -385,10 +406,96 @@ header {
   margin-bottom: 10px;
 }
 
+.team-member p {
+  margin-bottom: 16px;
+}
+
 .team-photo {
   background: #f5f4fa;
   border-bottom: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.social-icons-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.social-icons-link-inside {
+  fill: var(--logo-color);
+}
+
+.social-icons-link:hover,
+.social-icons-link:focus {
+  background-color: var(--active-link);
+  outline: transparent;
+}
+
+.social-icons-link:hover .social-icons-link-inside,
+.social-icons-link:focus .social-icons-link-inside {
+  fill: var(--main-white);
+}
+
+.social-icons-list {
+  display: flex;
+}
+
+.social-icons-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+/* =========================================Наши Клиенты================================================= */
+.our-customers {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.our-customers h2 {
+  margin-bottom: 50px;
+  justify-content: center;
+  display: flex;
+  font-size: 36px;
+  line-height: 1.16;
+  letter-spacing: 0.03em;
+  color: var(--main-black-color);
+}
+
+.our-customer-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.our-customer-list-item {
+  display: flex;
+}
+
+.our-customer-link {
+  display: flex;
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--logo-color);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-customer-icon {
+  fill: var(--logo-color);
+}
+
+.our-customer-link:focus,
+.our-customer-link:hover {
+  border-color: var(--active-link);
+}
+
+.our-customer-link:focus .our-customer-icon,
+.our-customer-link:hover .our-customer-icon {
+  fill: var(--active-link);
 }
 
 /* ==========================================Адресса===================================================== */
@@ -463,10 +570,18 @@ address a {
   margin-left: -30px;
 }
 
-.portfolio-projects-link {
+.portfolio-projects-link-items {
   margin-top: 30px;
   margin-left: 30px;
   flex-basis: calc ((100% - 90px) / 3);
+}
+
+.portfolio-projects-link:hover .portfolio-projects-container,
+.portfolio-projects-link:focus .portfolio-projects-container{
+  box-shadow: 
+  0px 1px 1px rgba(0, 0, 0, 0.12), 
+  0px 4px 4px rgba(0, 0, 0, 0.06), 
+  1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 /*==============================================Кнопки на страничке портфолио=============================== */
@@ -491,7 +606,6 @@ address a {
   padding-top: 6px;
   padding-bottom: 6px;
   background-color: var(--background-button);
-  filter: drop-shadow(0px 4px 4px var(--buuton-shodow));
   border-radius: 4px;
   font-style: normal;
   font-weight: 500;
@@ -509,6 +623,7 @@ address a {
   cursor: pointer;
   color: var(--main-white);
   outline: none;
+  box-shadow: 0px 4px 4px var(--buuton-shodow);
 }
 
 /* ==================================================Подвал========================================================== */
@@ -521,16 +636,59 @@ address a {
   margin-right: auto;
 }
 
+.social-link-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--main-white);
+  margin-bottom: 20px;
+}
+
+.social-icons-link.podval {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-icons-link-inside.podval {
+  fill: #ffffff;
+}
+
+.social-icons-link.podval:hover,
+.social-icons-link.podval:focus {
+  background-color: var(--active-link);
+}
+
+.social-icons-list-item.podval:not(:last-child){
+  margin-right: 10px;
+}
+
 .logo-footer {
   margin-bottom: 20px;
 }
 
 .adress-footer p,
-.link-mail-tel {
+.link-mail-tel.down {
   margin-bottom: 9px;
   display: block;
 }
 
 .link-mail-tel-footer {
   display: block;
+}
+
+.link-mail-tel-footer:focus,
+.link-mail-tel-footer:hover {
+  color: #2196f3;
+}
+
+.container.container-footer {
+  display: flex;
+  align-items: baseline;
+}
+
+.social-link-footer {
+  margin-left: 70px;
 }
