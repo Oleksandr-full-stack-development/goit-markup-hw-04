@@ -209,7 +209,9 @@ header {
 }
 
 .link-mail-tel.top:hover .mail-top,
-.link-mail-tel.top:focus .tel-top {
+.link-mail-tel.top:focus .tel-top,
+.link-mail-tel.top:hover .tel-top,
+.link-mail-tel.top:focus .mail-top{
   fill: var(--active-link);
   outline: none;
 }
